@@ -5,7 +5,8 @@ public class Booked {
 /*Overview Booked is able to increment or decrement the number of sets available for a certain movie, based on
     the refunds and purchases made towards that particular movie
     */
-    private movies movies1;
+    private movies movies1;// a movies object is needed in order to access the seat array and adjust the seats available for that
+    //movie based on the increment(refunding seats) and the decrement method(purchasing seats)
 
     public Booked(movies movies1, int j, int k, int stat) {
         /*
@@ -17,11 +18,11 @@ public class Booked {
 
         this.movies1 = movies1;
         System.out.println(movies1.getMovie());
-        if (j == 1) {// j=1 we are reserving seats
-            SeatsAvailableDecremenet(k,stat);
+        if (j == 1) {// the variablej acts as a STATE INDICATOR when, j=1 we are reserving seats
+            SeatsAvailableDecremenet(k,stat);// 
 
         }
-        if (j == 0) {//j=0 we are returning seats 
+        if (j == 0) {//when j=0 we are returning seats 
 
             SeatsAvailableIncremenet(k);
 
@@ -41,7 +42,7 @@ public class Booked {
         //number of available seats after purchase of tickets
         int count = k;
        
-        for (int i = 0; i < movies1.seats.length; i++) {
+        for (int i = 0; i < movies1.seats.length-1; i++) {
             if (movies1.seats[i] == 0 && count > 0) {
                 movies1.seats[i] = 1;
                 count--;
@@ -65,7 +66,7 @@ public class Booked {
         //number of available seats after a refund
         int count = k;
         System.out.println(movies1.seats.length);
-        for (int i = 0; i < movies1.seats.length; i++) {
+        for (int i = 0; i < movies1.seats.length-1; i++) {
             if (movies1.seats[i] == 1 && count > 0) {
                 movies1.seats[i] = 0;
                 count--;

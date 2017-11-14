@@ -15,6 +15,12 @@ public class loginScreen {
     static private ArrayList<movies> movieArr;
 
     public static manager Managersetup(manager one,int stat1 ) {
+        /*
+        Requires: manager object can be null, or active manager object, int stat1 can be any integer 
+        Modifies: adds movies into <movies> arraylist in manager class. 
+        Effects: creates movies for the customers to choose from
+        
+        */
         String password, name;
         int x = 0, x1 = 0, z1 = 0, qw = 0, b = 0;
             if(stat1==0){
@@ -142,7 +148,12 @@ public class loginScreen {
         // customer should be able to purchase a ticket, refund a ticker
         //and check the information on their seats, need to pass the customer array
         // that customer array needs to have a pointer to the customers specific seat
-
+         /*
+        Requires: int i >= 0, arraylist <string> can't be null, length greater than 0, 
+        arraylist <string> can't be null, length greater than 0, arraylist<movies> cant be null, length greater than 0 
+        Modifies: customer objects that purchase and refund tickets will have a state change to the tickets and seats purchased. 
+        Effects:users can purchase, refund tickets, view info on tickets and movie titles. 
+        */
         int y = 0, x = 0;
 
         do {

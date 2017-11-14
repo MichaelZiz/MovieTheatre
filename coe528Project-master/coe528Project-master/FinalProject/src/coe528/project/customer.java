@@ -153,9 +153,18 @@ public class customer {
     public void purchaseTicket(int age, int seats, String movieName, movies movies1,int status) {
         //customer should get discounts as applicable, based on age if they buy one ticket,number of seats purchased
         //need access to movies array here
-
+        int seatnum1;
         totalprice = movies1.getTicketPrice();
         title = movies1.getMovie();
+        
+        if(status!=1){
+        seatnum1=Math.abs(getSeatnum()-seats);
+        
+        }else {
+        seatnum1=seats;
+        }
+        
+        
         seatnum = seats;
         setSeatnum(seatnum);
         setMovie1(movies1);
@@ -191,11 +200,13 @@ public class customer {
             totalprice = totalprice * 0.8;
             System.out.println("new ticket price$ " + totalprice);
         }
-      if(status==1){
-        setBooked(movies1, 1, seats, 1);}
-      else{
-      setBooked(movies1,1, seats/2, 2);
-      }
+     
+         
+        setBooked(movies1, 1, seatnum1, 1);
+      
+              
+    
+      
         
         
        
