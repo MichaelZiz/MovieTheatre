@@ -132,10 +132,21 @@ public class customer {
     }
 
     public String getTitle() {
+        /*
+        Requires: no requirement
+        Modifies:No modifications
+        Effects: returns the title of the movie purchased by the customer 
+        */
         return title;
     }
 
     public double getTotalprice() {
+         /*
+        Requires: no requirement
+        Modifies: No modifications
+        Effects: returns the updated total price for the movie 
+        */
+        
         return totalprice;
     }
 
@@ -192,7 +203,12 @@ public class customer {
 
     }
 
-    public void refundTicket(movies movies1, int seats) {
+    public void refundTicket(movies movies1, int seats) {// check this out
+        /*
+        Require:movie object that isnt null
+        Modifies:no modifications
+        Effects: calls setbooked method
+        */
 
         setBooked(movies1, 0, getSeatnum(),0); //this should be the calling to booked from refund ticket
 
@@ -202,6 +218,12 @@ public class customer {
     }
 
     public void SetinformationONticket() {
+        
+         /*
+        Requires: no requirement
+        Modifies:No modifications
+        Effects: returns the movie title, number of seats purchased and total price: for Movie purchased by the customer 
+        */
         //will use this method to possibly gather info from customer array in the main login screen
             if(getTitle()==null){
             

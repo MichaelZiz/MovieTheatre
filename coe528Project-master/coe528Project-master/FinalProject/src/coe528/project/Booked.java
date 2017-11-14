@@ -3,10 +3,17 @@ package coe528.project;
 
 public class Booked {
 /*Overview Booked is able to increment or decrement the number of sets available for a certain movie, based on
-    the refunds and purchases made towards that particular movie*/
+    the refunds and purchases made towards that particular movie
+    */
     private movies movies1;
 
     public Booked(movies movies1, int j, int k, int stat) {
+        /*
+        Requires:Movie object that contains information on the particular movie, integer j either 1 or 0( state for adding/refunding seats),
+        integer k greater than zero , int stat either 1 or any integer(state for booking seats)
+        Modifies: sets the movie object
+        Effects: sets the movie object and initializes the seat increment or decrement based on state of j        
+        */
 
         this.movies1 = movies1;
         System.out.println(movies1.getMovie());
@@ -22,7 +29,15 @@ public class Booked {
 
     }
 
-    public void SeatsAvailableDecremenet(int k,int status) {//k is the number of seats to reserve
+    public void SeatsAvailableDecremenet(int k,int status) {
+        /*
+        Requires:integer k thats is greater than 0, status either a 1 or any integer(state)
+        Modifies: movies.seats array,when seats are booked most imediate cell becomes 1 
+        Effects: changes the movies seats to 1 when seats have been booked
+        */
+
+
+        //k is the number of seats to reserve
         //number of available seats after purchase of tickets
         int count = k;
        
@@ -38,7 +53,15 @@ public class Booked {
     }else System.out.println("total seats booked: " + 2*k);
     }
 
-    public void SeatsAvailableIncremenet(int k) {// is the number of seats to return
+    public void SeatsAvailableIncremenet(int k) {
+        /*
+        Requires: integer k that is greater than 0 
+        Effects: movies.seats array, when seats are removed cell becomes a 0
+        Modifies: changes the movies seats to 0 when seats have been refunded     
+        */
+
+
+        // is the number of seats to return
         //number of available seats after a refund
         int count = k;
         System.out.println(movies1.seats.length);

@@ -2,13 +2,20 @@
 package coe528.project;
 
 public class movies {
-/*OVERVIEW Movies class stores information on the movie(s) being stored, contains the title, number of seats for the movie 
-    and the set ticket price of the movie*/
+ /*OVERVIEW Movies class stores information on the movie(s) being stored, contains the title, number of seats for the movie 
+ and the set ticket price of the movie*/
     String movieName;
     public int[] seats;
     double ticketPrice;
 
     public movies(String movieName, int numseats, double ticketPrice) {
+        /*
+        Requires: a string of movieName that isnt null and length greater than 0, integer numSeats greater than 0, 
+        double ticketprice greater than 0.  
+        Modifies:new seat array based on number of set seats, sets ticketprice and movieName
+        Effects: sets ticketprice, set movie name and seats in a movie array 
+        */
+        
         this.movieName = movieName;
         seats = new int[numseats];
 
@@ -22,19 +29,34 @@ public class movies {
     }
 
     public String getMovie() {
+        /*
+        Requires: no requirements 
+        Modifies: no modifications
+        Effects: returns movieName
+        */
         return movieName;
 
     }
 
     public double getTicketPrice() {
+        /*
+        Requires: no requirements 
+        Modifies: no modifications
+        Effects: returns ticketprice 
+        */
         return ticketPrice;
     }
 
-    public void getNumSeats() {
+    public void getNumSeats() {// dont need this method 
 
     }
 
     public int SeatsAvailable() {
+        /*
+        Requires:no requirement
+        Modifies: no modification
+        Effects:counts the number of available seats for that particular movie
+        */
         int count1 = 0;
         for (int i = 0; i < seats.length; i++) {
             if (seats[i] == 0) {

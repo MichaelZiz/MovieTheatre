@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class loginScreen {
-    /*Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
+    /*Overview: Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
     Login starts off with manager access, as manager should create movies to be available to the public. Customers can access,
     and manage their accounts via login*/
 
@@ -14,10 +14,10 @@ public class loginScreen {
     private static ArrayList<String> titles;
     static private ArrayList<movies> movieArr;
 
-    public static manager Managersetup(manager one) {
+    public static manager Managersetup(manager one,int stat1 ) {
         String password, name;
         int x = 0, x1 = 0, z1 = 0, qw = 0, b = 0;
-
+            if(stat1==0){
         System.out.println("Security: Manager Setup: please enter/re Enter a password of 5 characters length, user automatically set as admin (admin,admin)");
         while (x == 0) {
             Scanner v = new Scanner(System.in);
@@ -51,6 +51,7 @@ public class loginScreen {
                 System.out.println("enter a password of 5 characters length");
             }
         }
+    }
 
         System.out.println("As a manager you must create Movies");
 
@@ -354,7 +355,7 @@ public class loginScreen {
         manager one = new manager();
         System.out.println("Manager unique number is 0");
 
-        one = Managersetup(one);
+        one = Managersetup(one,0);
         //exit manager
 
         System.out.println("Accesssing Main directory");
@@ -399,7 +400,7 @@ public class loginScreen {
 
                         if (password.equals(one.getAdminPassword()) && name.equals(one.getUserName()) && accnum == one.getAccountNum()) {//check manager login
 
-                            Managersetup(one);
+                            Managersetup(one,1);
                         } else// System.out.println("in here");
                         if (userspointer.size() >= 1) {
                             for (int i = 0; i <= userspointer.size() - 1; i++) {
