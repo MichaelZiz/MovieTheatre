@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class manager {
  /*OVERIVIEW Manager class contains the managers credentials to access the system, manager can create a movie and give access to
     other class to access its informatoin on movie objects*/
-    private String userName = "admin";
-    private String adminPassword = "admin";
-    static private int accountNumber = 0;
+    private final String userName = "admin";
+    private final String adminPassword = "admin";
+    private final int accountNumber = 0;
     static private ArrayList< movies> movieArr = new ArrayList<movies>();
     static private ArrayList<String> MovieTitles = new ArrayList<String>();
     static private ArrayList<customer> activeusers = new ArrayList<customer>();

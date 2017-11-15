@@ -1,7 +1,7 @@
 
 package coe528.project;
 
-public class Booked {
+public final class Booked {
 /*Overview Booked is able to increment or decrement the number of sets available for a certain movie, based on
     the refunds and purchases made towards that particular movie
     */

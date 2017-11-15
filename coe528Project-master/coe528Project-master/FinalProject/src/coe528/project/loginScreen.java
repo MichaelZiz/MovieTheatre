@@ -202,13 +202,13 @@ public class loginScreen {
                         Scanner moviet = new Scanner(System.in);
                         titlerequest = moviet.nextLine();
                         if (userspointer1.get(i).getTitle() == null || titlerequest.equals(userspointer1.get(i).getTitle())) {
-                            System.out.println("here");
+                            //System.out.println("here");
                             if (titles1.contains(titlerequest)) {
                                 int j = 0;
                                 for (int k1 = 0; k1 < movies1.size() - 1; k1++) {
                                     j = titles1.indexOf(titlerequest);
                                 }
-                                System.out.println("this is j: "+j);
+                               // System.out.println("this is j: "+j);
                                 //check available seats for that title
                                 // if avaiable ask user to input value for seats
                                 //check if user entered a valid int and that their is a number of seats avaiable
@@ -282,7 +282,7 @@ public class loginScreen {
                                     } else {
                                         System.out.println("No seats available for this movie");
                                     }
-                                }else System.out.println();
+                                }else System.out.println("title doesn't exist");
 
                                 // }
                             } else {
@@ -337,12 +337,13 @@ public class loginScreen {
                     //best to implement this through a method in manager class
                     if(movies1.isEmpty()==false) {
                     System.out.println("Available movies");
-                    for (int io = 0; io < movies1.size() - 1; io++) { // check the movies with a for loop that loops through and matches the name hence also matching the number of seast along with it
+                    for (int io = 0; io <= movies1.size() - 1; io++) { // check the movies with a for loop that loops through and matches the name hence also matching the number of seast along with it
                         //System.out.println(io+" "+titles1.size());
                         if (movies1.get(io) == null) {
-                            System.out.println("here1");
+                            //System.out.println("here1"); /*create some loop counter for no movies*/
                         } else {
-                            q = "\nMovie: " + (io + 1) + " " + movies1.get(io).movieName+ " Seats avaiable: "+ movies1.get(io).SeatsAvailable() + q;
+                            q = "Movie: " + (io + 1) + " " + movies1.get(io).movieName+ " Seats avaiable: "+ movies1.get(io).SeatsAvailable();
+                          
                             System.out.println(q);
                         }
 
@@ -376,7 +377,7 @@ public class loginScreen {
         int x = 0, accnum = 0;//set it zero here no account will have 0 for users
         while (x == 0) {
             int access;
-            System.out.println("Press 1 to enter to Login As customer\n Press 2 to Register as a user\n 3 To exit");
+            System.out.println("Press 1 to enter to Login As customer (or Manager)\n Press 2 to Register as a user\n 3 To exit");
             Scanner q = new Scanner(System.in);
             if (q.hasNextInt() == true) {
                 access = q.nextInt();
@@ -492,7 +493,7 @@ public class loginScreen {
                                         dido++;
                                     }
                                 }
-                                System.out.println("dido value" + dido);
+                               // System.out.println("dido value" + dido);
                                 if (dido > 1) {
                                     System.out.println("Username already exists, choose another name, Enter another Username");
                                 } else {
