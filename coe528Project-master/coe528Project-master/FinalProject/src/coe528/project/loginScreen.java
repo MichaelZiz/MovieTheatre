@@ -101,8 +101,8 @@ public class loginScreen {
                                     System.out.println("enter # of available seats for the movie between 20 and 30 seats");
                                     if (yo1.hasNextInt() == true) {
                                         seatNum = yo1.nextInt();
-                                        if (seatNum > 19 && seatNum <31) {// 19 and 31
-                                            if (k > -1 && k < 8) {
+                                        if (seatNum > 19 && seatNum <31) {// can change the seat limit here 19 and 31
+                                            if (k > -1 && k < 8) {//can change the movei limit here
 
                                                 one.addMovie(movieName, seatNum, price, k);
                                                 y8 = 1;
