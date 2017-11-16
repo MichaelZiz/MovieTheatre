@@ -46,7 +46,7 @@ public  class Booked {
             if (movies1.seats[i] == 0 && count > 0) {
                 movies1.seats[i] = 1;
                 count--;
-                System.out.println("count in array"+count+"");
+                //System.out.println("count in array"+count+"");
             }
         }
     if(status==1){
