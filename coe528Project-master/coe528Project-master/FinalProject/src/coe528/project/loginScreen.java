@@ -59,7 +59,7 @@ public class loginScreen {
         }
     }
 
-        System.out.println("As a manager you must create Movies");
+        System.out.println("As a manager you must create Movies. Can create 3 movies");
 
         do {
 
@@ -98,11 +98,11 @@ public class loginScreen {
 
                                 while (y8 == 0) {
                                     Scanner yo1 = new Scanner(System.in);
-                                    System.out.println("enter # of available seats for the movie between 20 and 30 seats");
+                                    System.out.println("enter # of available seats for the movie between 8 and 10 seats");
                                     if (yo1.hasNextInt() == true) {
                                         seatNum = yo1.nextInt();
-                                        if (seatNum > 19 && seatNum <31) {// can change the seat limit here 19 and 31
-                                            if (k > -1 && k < 8) {//can change the movei limit here
+                                        if (seatNum > 7 && seatNum <11) {// can change the seat limit, 2-4 seats per movie
+                                            if (k > -1 && k < 3) {//can change the movie limit, make 2 movies
 
                                                 one.addMovie(movieName, seatNum, price, k);
                                                 y8 = 1;
@@ -117,7 +117,7 @@ public class loginScreen {
 
                                             }
                                         } else {
-                                            System.out.println("movie theater capacity lies from 19 to 31 seats ");
+                                            System.out.println("movie theater capacity lies from 10 to 12 seats ");
                                         }
                                     } else {
                                         System.out.println("Enter a valid decimal number");
@@ -208,13 +208,9 @@ public class loginScreen {
                                 for (int k1 = 0; k1 < movies1.size() - 1; k1++) {
                                     j = titles1.indexOf(titlerequest);
                                 }
-                               // System.out.println("this is j: "+j);
-                                //check available seats for that title
-                                // if avaiable ask user to input value for seats
-                                //check if user entered a valid int and that their is a number of seats avaiable
-                                //  for (int j = 0; j < movies1.length; j++) {//enhanced loop
-                                System.out.println(titlerequest+" in array: "+movies1.get(j).getMovie());
+                               
                                 if (titlerequest.equals(movies1.get(j).getMovie())) {
+                                    
                                     if (movies1.get(j).SeatsAvailable() > 0) {
 
                                         System.out.println("Available seats");
@@ -228,7 +224,7 @@ public class loginScreen {
                                                    if(userspointer1.get(i).getSeatnum()==0){ //customer can still purchase tickets as long as his seat balance is below 4 ADDED
                                                 if (seatholder > 0 && seatholder <= movies1.get(j).SeatsAvailable()) {
                                                     if (seatholder < 5 && seatholder > 0) {
-                                                        userspointer1.get(i).purchaseTicket(userspointer.get(i).getAge(), seatholder, titlerequest, movies1.get(j),1);
+                                                        userspointer1.get(i).purchaseTicket(userspointer1.get(i).getAge(), seatholder, titlerequest, movies1.get(j),1);
                                                         // should have a away to decrement the seats in movie and from customer point to movie so user can later access info
                                                         p1 = 1;
                                                         lp = 1;
@@ -245,13 +241,14 @@ public class loginScreen {
                                                    //
                                                        if (seatholder > 0 && seatholder <= movies1.get(j).SeatsAvailable()) {
                                                     if ((seatholder + userspointer1.get(i).getSeatnum())<=4 && seatholder > 0) {
-                                                        userspointer1.get(i).purchaseTicket(userspointer.get(i).getAge(), userspointer1.get(i).getSeatnum()+seatholder, titlerequest, movies1.get(j),2);
+                                                        System.out.println("seat");
+                                                        userspointer1.get(i).purchaseTicket(userspointer1.get(i).getAge(), userspointer1.get(i).getSeatnum()+seatholder, titlerequest, movies1.get(j),2);
                                                         // should have a away to decrement the seats in movie and from customer point to movie so user can later access info
                                                         p1 = 1;
                                                         lp = 1;
                                                         break;
                                                     } else {
-                                                        if(userspointer.get(i).getSeatnum()==4){
+                                                        if(userspointer1.get(i).getSeatnum()==4){
                                                         lp=1;
                                                         p1=1;
                                                         System.out.println("already have max tickets");
@@ -281,12 +278,17 @@ public class loginScreen {
                                         }
                                     } else {
                                         System.out.println("No seats available for this movie");
+                                        lp=1;
                                     }
                                 }else System.out.println("title doesn't exist");
 
                                 // }
                             } else {
+                                
+                                
+                                                           
                                 System.out.println("enter a valid movie title from the selection \n" + q);
+                                
 
                             }
                        
@@ -389,7 +391,7 @@ public class loginScreen {
                     name = h.nextLine();
                     System.out.println("Login: enter password");
                     password = h.nextLine();
-                    System.out.println("enter password account number");
+                    System.out.println("Enter account number");
                     int x1 = 0;
                     while (x1 == 0) {
 
@@ -432,21 +434,21 @@ public class loginScreen {
                             if (counter1 > 0) {
                                 //System.out.println("account doesnt exist");//add counter here}
                             } else {
-                                System.out.println("account doesnt exist3");
+                                System.out.println("account doesnt exist");
                             }
 
                         } else {
-                            System.out.println("account doesnt exist2");
+                            System.out.println("account doesnt exist");
                         }
                     } catch (IndexOutOfBoundsException a) {
-                        System.out.println("account doesnt exist1");
+                        System.out.println("account doesnt exist");
                     }
 
                 }
                 if (access == 2) {// register as a user only a Username and Password is required account number is given to user 
 
                     String name1, password1;
-
+                    userspointer = one.getList();
                     Scanner h = new Scanner(System.in);
                     System.out.println("Login: enter password for new account");
                     password1 = h.nextLine();
@@ -464,11 +466,11 @@ public class loginScreen {
                         Scanner v1 = new Scanner(System.in);
                         if (v1.hasNextInt() == true) {
                             age = v1.nextInt();
-                            if (age > 0) {
+                            if (age > 10) {
                                
                                 y1 = 1;
                             } else {
-                                System.out.println("enter value above 0 for age");
+                                System.out.println("enter value above 11 for age");
                             }
                         } else {
                             System.out.println("enter a valid integer for age");
@@ -487,14 +489,14 @@ public class loginScreen {
                                 
                                 x3 = 1;
                             } else {
-                                for (int i = 0; i < userspointer.size() - 1; i++) {
-
+                                for (int i = 0; i <= userspointer.size() - 1; i++) {
+                                  //  System.out.println("names: "+userspointer.get(i).getUsername());
                                     if (name1.equals(userspointer.get(i).getUsername())) {// change this up to actual user name no tthe names array
                                         dido++;
                                     }
                                 }
-                               // System.out.println("dido value" + dido);
-                                if (dido > 1) {
+                              // System.out.println("dido value" + dido);
+                                if (dido > 0) {
                                     System.out.println("Username already exists, choose another name, Enter another Username");
                                 } else {
                                     System.out.println("Unique Account Number is: " + p);

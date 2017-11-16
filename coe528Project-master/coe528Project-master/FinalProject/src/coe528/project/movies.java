@@ -58,7 +58,7 @@ public class movies {
         Effects:counts the number of available seats for that particular movie
         */
         int count1 = 0;
-        for (int i = 0; i < seats.length; i++) {
+        for (int i = 0; i <seats.length; i++) {
             if (seats[i] == 0) {
 
                 count1++;

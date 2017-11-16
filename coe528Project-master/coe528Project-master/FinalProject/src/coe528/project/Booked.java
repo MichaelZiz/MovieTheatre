@@ -1,7 +1,7 @@
 
 package coe528.project;
 
-public final class Booked {
+public  class Booked {
 /*Overview Booked is able to increment or decrement the number of sets available for a certain movie, based on
     the refunds and purchases made towards that particular movie
     */
@@ -41,16 +41,16 @@ public final class Booked {
         //k is the number of seats to reserve
         //number of available seats after purchase of tickets
         int count = k;
-       
-        for (int i = 0; i < movies1.seats.length-1; i++) {
+       System.out.println("seatsbooked "+k+"movielength "+movies1.seats.length);
+        for (int i = 0; i < movies1.seats.length; i++) {
             if (movies1.seats[i] == 0 && count > 0) {
                 movies1.seats[i] = 1;
                 count--;
-
+                System.out.println("count in array"+count+"");
             }
         }
     if(status==1){
-        System.out.println("seats booked: " + k);
+        System.out.println("seats booked: " + k+"count "+count);
     }else System.out.println("total seats booked: " + 2*k);
     }
 
@@ -66,7 +66,7 @@ public final class Booked {
         //number of available seats after a refund
         int count = k;
         System.out.println(movies1.seats.length);
-        for (int i = 0; i < movies1.seats.length-1; i++) {
+        for (int i = 0; i < movies1.seats.length; i++) {
             if (movies1.seats[i] == 1 && count > 0) {
                 movies1.seats[i] = 0;
                 count--;
