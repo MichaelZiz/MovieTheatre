@@ -187,7 +187,7 @@ public class loginScreen {
                     for (int k = 0; k <= movies1.size() - 1; k++) { // check the movies with a for loop that loops through and macthes the name hence also matching the number of seast along with it
                         if (movies1.get(k) == null) {
                         } else {
-                           q = "Movie: " + (k + 1) + " " + movies1.get(k).movieName;
+                           q = "Movie: " + (k + 1) + " " + movies1.get(k).movieName+"\n"+q;
                             System.out.println(q);
                         }
 
@@ -379,7 +379,7 @@ public class loginScreen {
         int x = 0, accnum = 0;//set it zero here no account will have 0 for users
         while (x == 0) {
             int access;
-            System.out.println("Press 1 to enter to Login As customer (or Manager)\n Press 2 to Register as a user\n 3 To exit");
+            System.out.println("Press 1 to enter to Login As customer (or Manager)\nPress 2 to Register as a user\nPress 3 To exit");
             Scanner q = new Scanner(System.in);
             if (q.hasNextInt() == true) {
                 access = q.nextInt();
@@ -466,11 +466,11 @@ public class loginScreen {
                         Scanner v1 = new Scanner(System.in);
                         if (v1.hasNextInt() == true) {
                             age = v1.nextInt();
-                            if (age > 10) {
+                            if (age > 10 && age< 100) {
                                
                                 y1 = 1;
                             } else {
-                                System.out.println("enter value above 11 for age");
+                                System.out.println("enter value for age  from 11 to 99");
                             }
                         } else {
                             System.out.println("enter a valid integer for age");

@@ -24,7 +24,7 @@ public class movies {
 
         }
         this.ticketPrice = ticketPrice;
-        System.out.println("Movie title: " + movieName + "\n Number of seats: " + numseats + "\n TicketPrice: " + ticketPrice);
+        System.out.println(" Movie title: " + movieName + "\n Number of seats: " + numseats + "\n TicketPrice: " + ticketPrice);
 
     }
 
@@ -47,9 +47,7 @@ public class movies {
         return ticketPrice;
     }
 
-    public void getNumSeats() {// dont need this method 
-
-    }
+   
 
     public int SeatsAvailable() {
         /*

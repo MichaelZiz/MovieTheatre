@@ -64,7 +64,7 @@ public class customer {
         this.movie1 = movie1;
     }
 
-    public void setBooked(movies movies1, int j, int k,int stat) {
+    public void setBooked(movies movies1, int j, int k) {
          /*
         Requires: movies object, integer j (either a 1 or 0): determine state of booked object. 
         Integer k greater than 0 less that 4: the number of seats 
@@ -73,7 +73,7 @@ public class customer {
         Effects: creates a new booked object that follows state procedure based on its parameters
         */
         
-        booked = new Booked(movies1, j, k,stat);
+        booked = new Booked(movies1, j, k);
     }
 
     public String getPassword() {
@@ -168,13 +168,13 @@ public class customer {
         seatnum = seats;
         setSeatnum(seatnum);
         setMovie1(movies1);
-        System.out.println("seats"+seats);
+        //System.out.println("seats"+seats);
         // need to decrement the amount of seats availble will make another class called booked that will access the seat booking
         // will be accessed via book.seatavailable()
 
         if (seats == 1) {//discount on age, 10% discount
             if (age < 12 || age > 64) {
-                totalprice = totalprice * 0.9;
+                totalprice =Math.round( totalprice * 0.9);
                 System.out.println("Age discount");
                 System.out.println("new ticket price $ " + totalprice);
 
@@ -183,13 +183,13 @@ public class customer {
         }
         if (seats == 2)//discount 5%
         {
-            totalprice = totalprice * 0.95;
+            totalprice = Math.round(totalprice * 0.95);
             System.out.println("2 seat discount");
             System.out.println("new ticket price$ " + totalprice);
         }
         if (seats == 3)//discount 10%
         {
-            totalprice = totalprice * 0.9;
+            totalprice = Math.round( totalprice * 0.9);
             System.out.println("3 seat discount");
             System.out.println("new ticket price$ " + totalprice);
         }
@@ -197,12 +197,12 @@ public class customer {
         {
             System.out.println("4 seat discount");
 
-            totalprice = totalprice * 0.8;
+            totalprice = Math.round(totalprice * 0.8);
             System.out.println("new ticket price$ " + totalprice);
         }
      
          
-        setBooked(movies1, 1, seatnum1, 1);
+        setBooked(movies1, 1, seatnum1);
       
               
     
@@ -221,7 +221,7 @@ public class customer {
         Effects: calls setbooked method
         */
 
-        setBooked(movies1, 0, getSeatnum(),0); //this should be the calling to booked from refund ticket
+        setBooked(movies1, 0, getSeatnum()); //this should be the calling to booked from refund ticket
 
         title = null;
         seatnum = 0;
@@ -240,7 +240,7 @@ public class customer {
             
             System.out.println("No purchases made, no info to display");}
             else{
-        System.out.println("Movie Title: " + getTitle() + "\n Number of seats" + getSeatnum() + "\n Price:$ " + getTotalprice());
+        System.out.println(" Movie Title: " + getTitle() + "\n Number of seats: " + getSeatnum() + "\n Price:$ " + getTotalprice());
             }
     }
 
