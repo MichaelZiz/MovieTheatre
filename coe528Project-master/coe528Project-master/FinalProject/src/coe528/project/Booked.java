@@ -50,7 +50,7 @@ public  class Booked {
             }
         }
     if(status==1){
-        System.out.println("seats booked: " + k+"count "+count);
+        System.out.println("seats booked: " + k);
     }else System.out.println("total seats booked: " + 2*k);
     }
 
@@ -65,7 +65,7 @@ public  class Booked {
         // is the number of seats to return
         //number of available seats after a refund
         int count = k;
-        System.out.println(movies1.seats.length);
+       // System.out.println(movies1.seats.length);
         for (int i = 0; i < movies1.seats.length; i++) {
             if (movies1.seats[i] == 1 && count > 0) {
                 movies1.seats[i] = 0;
