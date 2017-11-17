@@ -11,12 +11,11 @@ public class loginScreen {
 
     static private int k = 0, p = 1;
     private static ArrayList<customer> userspointer;
-<<<<<<< HEAD
+
     private static ArrayList<String> titles=new ArrayList <String>();
     static private ArrayList<movies> movieArr=new ArrayList<movies>();
-=======
-    private static ArrayList<String> titles;
-    static private ArrayList<movies> movieArr;
+
+
     
      /* Abstraction Function:
         AF(r) = 
@@ -24,7 +23,7 @@ public class loginScreen {
         Rep Invariant:
 
         */
->>>>>>> 1044e79bc8a5739a28237a5fd182e4b477310983
+
 
     public static manager Managersetup(manager one, int stat1) {
         /*
