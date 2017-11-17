@@ -119,7 +119,7 @@ public class loginScreen {
                                         if (seatNum > 7 && seatNum < 11) {// can change the seat limit, 2-4 seats per movie
                                             if (k > -1 && k < 3) {//can change the movie limit, make 2 movies
 
-                                                one.addMovie(movieName, seatNum, price, k,0,0);
+                                                one.addandRemoveMovie(movieName, seatNum, price, k,0,0);
                                                 y8 = 1;
                                                 y9 = 1;
                                                 k++;
@@ -184,7 +184,7 @@ public class loginScreen {
                     if(movieArr.size()==0||movieArr.get(k1).SeatsAvailable()==movieArr.get(k1).getSeattotal()){
                     System.out.println("No purchases made, removed movie");
                     titles.remove(movieName1);
-                    one.addMovie(null,0,0.0,0,1,k1);
+                    one.addandRemoveMovie(null,0,0.0,0,1,k1);
                     y11=1;
                     }else {
                         System.out.println("Cannot remove movie, purchases already made");

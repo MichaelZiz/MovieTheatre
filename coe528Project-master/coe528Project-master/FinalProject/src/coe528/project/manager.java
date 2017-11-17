@@ -17,7 +17,7 @@ public class manager {
 
     }
 
-    public void addMovie(String movieName, int numSeats, double ticketPrice, int movieNumber,int status, int index1) {// check the movie number
+    public void addandRemoveMovie(String movieName, int numSeats, double ticketPrice, int movieNumber,int status, int index1) {// check the movie number
         /*
         Requires:a string movieName that isnt null, length greater than zero, an integer numSeats that is greater than zero,
         a double ticketPrice that is greater than zero
