@@ -2,13 +2,19 @@
 package coe528.project;
 
 public  class Booked {
-/*Overview Booked is able to increment or decrement the number of sets available for a certain movie, based on
+/*Overview Booked is able to increment or decrement the number of seats available for a certain movie, based on
     the refunds and purchases made towards that particular movie
     */
     private movies movies1;// a movies object is needed in order to access the seat array and adjust the seats available for that
     //movie based on the increment(refunding seats) and the decrement method(purchasing seats)
+    
+     /* Abstraction Function:
+        AF(r) = 
 
-    public Booked(movies movies1, int j, int k) {
+        Rep Invariant:
+
+        */
+    public Booked(movies movies1, int j, int k) { 
         /*
         Requires:Movie object that contains information on the particular movie, integer j either 1 or 0( state for adding/refunding seats),
         integer k greater than zero , int stat either 1 or any integer(state for booking seats)
@@ -78,6 +84,10 @@ public  class Booked {
 
         System.out.println("seats refunded: " + k);// will be implemented later on in refund methods
 
+    }
+    
+    public boolean repok(){
+        return false;
     }
 
 }

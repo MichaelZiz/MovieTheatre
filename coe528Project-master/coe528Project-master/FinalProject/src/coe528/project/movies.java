@@ -8,6 +8,13 @@ public class movies {
     public int[] seats;
     private int seattotal;
     double ticketPrice;
+    
+     /* Abstraction Function:
+        AF(r) = 
+
+        Rep Invariant:
+
+        */
 
     public movies(String movieName, int numseats, double ticketPrice) {
         /*
@@ -77,6 +84,10 @@ public class movies {
             System.out.println("movie full");
         }
         return count1;
+    }
+    
+    public boolean repok(){
+        return false;
     }
 
 }

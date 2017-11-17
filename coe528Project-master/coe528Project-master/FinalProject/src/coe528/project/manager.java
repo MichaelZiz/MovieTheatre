@@ -12,6 +12,13 @@ public class manager {
     private final int accountNumber = 0;
     static private ArrayList< movies> movieArr = new ArrayList<movies>();
     static private ArrayList<customer> activeusers = new ArrayList<customer>();
+    
+     /* Abstraction Function:
+        AF(r) = 
+
+        Rep Invariant:
+
+        */
 
     public manager() {
 
@@ -93,6 +100,10 @@ public class manager {
 
         return activeusers;
 
+    }
+    
+    public boolean repok(){
+        return false;
     }
 
 }
