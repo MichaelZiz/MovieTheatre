@@ -6,6 +6,7 @@ public class movies {
  and the set ticket price of the movie*/
     String movieName;
     public int[] seats;
+    private int seattotal;
     double ticketPrice;
 
     public movies(String movieName, int numseats, double ticketPrice) {
@@ -18,6 +19,7 @@ public class movies {
         
         this.movieName = movieName;
         seats = new int[numseats];
+        seattotal=numseats;
 
         for (int i = 0; i < seats.length; i++) {
             seats[i] = 0;
@@ -26,6 +28,10 @@ public class movies {
         this.ticketPrice = ticketPrice;
         System.out.println(" Movie title: " + movieName + "\n Number of seats: " + numseats + "\n TicketPrice: " + ticketPrice);
 
+    }
+
+    public int getSeattotal() {
+        return seattotal;
     }
 
     public String getMovie() {
@@ -66,7 +72,7 @@ public class movies {
             }
 
         }
-        // System.out.println("seats available: " + count1);
+        
         if (count1 <= 0) {
             System.out.println("movie full");
         }

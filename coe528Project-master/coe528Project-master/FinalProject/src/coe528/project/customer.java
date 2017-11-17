@@ -9,7 +9,7 @@ public class customer {
     private String Username;
     private String password;
     private int accnum, seatnum=0;
-    private String title, q;
+    private String title;
     private double totalprice;
     private Booked booked;
     private movies movie1;
@@ -18,7 +18,7 @@ public class customer {
     public String getUsername() {
         /*
         Requires:no requirements
-        Modifies:no modificatoin
+        Modifies:no modification
         Effects: returns customers username
         */
         
@@ -28,7 +28,7 @@ public class customer {
     public int getAge() {
          /*
         Requires:no requirements
-        Modifies:no modificatoin
+        Modifies:no modification
         Effects: returns customers age
         */
         return age;
@@ -37,7 +37,7 @@ public class customer {
     public void setAge(int age) {
          /*
         Requires: an integer that is greater than zero
-        Modifies: no modificatoin
+        Modifies: no modification
         Effects: sets customers age
         */        
         
@@ -57,7 +57,7 @@ public class customer {
     public void setMovie1(movies movie1) {
         /*
         Requires: a movie object, object can technically be null, but will not occur due to login screen procedure
-        Modifies: no modificatoin
+        Modifies: no modification
         Effects: sets movie customers is interested in
         */        
                 
@@ -69,7 +69,7 @@ public class customer {
         Requires: movies object, integer j (either a 1 or 0): determine state of booked object. 
         Integer k greater than 0 less that 4: the number of seats 
         the user is refunding/purchasing. integer status either a 1 or 2: determines the state in booked.incrementseats()
-        Modifies:
+        Modifies:no modification
         Effects: creates a new booked object that follows state procedure based on its parameters
         */
         
@@ -168,9 +168,7 @@ public class customer {
         seatnum = seats;
         setSeatnum(seatnum);
         setMovie1(movies1);
-        //System.out.println("seats"+seats);
-        // need to decrement the amount of seats availble will make another class called booked that will access the seat booking
-        // will be accessed via book.seatavailable()
+       
 
         if (seats == 1) {//discount on age, 10% discount
             if (age < 12 || age > 64) {
@@ -235,7 +233,7 @@ public class customer {
         Modifies:No modifications
         Effects: returns the movie title, number of seats purchased and total price: for Movie purchased by the customer 
         */
-        //will use this method to possibly gather info from customer array in the main login screen
+       
             if(getTitle()==null){
             
             System.out.println("No purchases made, no info to display");}

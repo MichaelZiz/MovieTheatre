@@ -1,10 +1,7 @@
 
 package coe528.project;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
 public class manager {
@@ -14,33 +11,31 @@ public class manager {
     private final String adminPassword = "admin";
     private final int accountNumber = 0;
     static private ArrayList< movies> movieArr = new ArrayList<movies>();
-    static private ArrayList<String> MovieTitles = new ArrayList<String>();
     static private ArrayList<customer> activeusers = new ArrayList<customer>();
 
     public manager() {
 
     }
 
-    public void addMovie(String movieName, int numSeats, double ticketPrice, int movieNumber) {// check the movie number
+    public void addMovie(String movieName, int numSeats, double ticketPrice, int movieNumber,int status, int index1) {// check the movie number
         /*
         Requires:a string movieName that isnt null, length greater than zero, an integer numSeats that is greater than zero,
         a double ticketPrice that is greater than zero
         Modifies: adds a new movie object into the movieArr arraylist, adds a new string of title into movieTitles arraylist
         Effects: new movie object added to movieArr, new string added to MovieTitles        
         */
+        if(status==0){
         movieArr.add(new movies(movieName, numSeats, ticketPrice));
-        MovieTitles.add(movieName);
+        }else movieArr.remove(index1);
 
     }
 
-    public static ArrayList<String> getMovieTitles() {
-        /*
-        Requires:no requirements
-        Modifies:no modifications
-        Effects:returns arraylist of movie titles
-        */
-        return MovieTitles;
+    public void deleteMovie(String movieName, int index1){
+        movieArr.remove(index1);
+    
+    
     }
+  
 
     public void createAccount(String username, String password, int accnum, int age) {
          /*
