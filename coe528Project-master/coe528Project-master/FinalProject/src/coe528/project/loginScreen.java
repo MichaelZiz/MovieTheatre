@@ -15,7 +15,6 @@ public class loginScreen {
     private static ArrayList<String> titles=new ArrayList <String>();
     static private ArrayList<movies> movieArr=new ArrayList<movies>();
 
-
     
      /* Abstraction Function:
         AF(r) = 

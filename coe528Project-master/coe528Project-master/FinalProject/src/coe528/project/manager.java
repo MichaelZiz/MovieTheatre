@@ -5,7 +5,7 @@ package coe528.project;
 import java.util.ArrayList;
 
 public class manager {
- /*OVERIVIEW Manager class contains the managers credentials to access the system, manager can create a movie and give access to
+  /*OVERIVIEW Manager class contains the managers credentials to access the system, manager can create a movie and give access to
     other class to access its informatoin on movie objects*/
     private final String userName = "admin";
     private final String adminPassword = "admin";
@@ -27,9 +27,11 @@ public class manager {
     public void addandRemoveMovie(String movieName, int numSeats, double ticketPrice, int movieNumber,int status, int index1) {// check the movie number
         /*
         Requires:a string movieName that isnt null, length greater than zero, an integer numSeats that is greater than zero,
-        a double ticketPrice that is greater than zero
-        Modifies: adds a new movie object into the movieArr arraylist, adds a new string of title into movieTitles arraylist
-        Effects: new movie object added to movieArr, new string added to MovieTitles        
+        a double ticketPrice that is greater than zero, int index that is equal to or greater than 0, and int status that can be any integer
+        Modifies: adds a new movie object into the movieArr arraylist, adds a new string of title into movieTitles arraylist, also depending on the
+        int status we can alos remove a movie, therefore changing the movie array 
+        Effects: new movie object added to movieArr, new string added to MovieTitles when status=0 or movie object removed from the movie array
+        ,if status is not 0        
         */
         if(status==0){
         movieArr.add(new movies(movieName, numSeats, ticketPrice));
@@ -37,11 +39,7 @@ public class manager {
 
     }
 
-    public void deleteMovie(String movieName, int index1){
-        movieArr.remove(index1);
     
-    
-    }
   
 
     public void createAccount(String username, String password, int accnum, int age) {
