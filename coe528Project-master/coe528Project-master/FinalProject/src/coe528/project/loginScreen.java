@@ -13,6 +13,13 @@ public class loginScreen {
     private static ArrayList<customer> userspointer;
     private static ArrayList<String> titles;
     static private ArrayList<movies> movieArr;
+    
+     /* Abstraction Function:
+        AF(r) = 
+
+        Rep Invariant:
+
+        */
 
     public static manager Managersetup(manager one,int stat1 ) {
         /*
@@ -363,6 +370,10 @@ public class loginScreen {
             }
         } while (x == 0);
 
+    }
+    
+    public boolean repok(){
+        return false;
     }
 
     public static void main(String[] args) {

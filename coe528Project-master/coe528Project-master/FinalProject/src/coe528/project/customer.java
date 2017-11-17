@@ -14,6 +14,13 @@ public class customer {
     private Booked booked;
     private movies movie1;
     private int age;
+    
+     /* Abstraction Function:
+        AF(r) = 
+
+        Rep Invariant:
+
+        */
 
     public String getUsername() {
         /*
@@ -202,16 +209,9 @@ public class customer {
         }
      
          
-        setBooked(movies1, 1, seatnum1);
-      
+        setBooked(movies1, 1, seatnum1);                      
               
-    
-      
-        
-        
-       
-        
-
+   
     }
 
     public void refundTicket(movies movies1, int seats) {// check this out
@@ -242,6 +242,10 @@ public class customer {
             else{
         System.out.println(" Movie Title: " + getTitle() + "\n Number of seats: " + getSeatnum() + "\n Price:$ " + getTotalprice());
             }
+    }
+    
+    public boolean repok(){
+        return false;
     }
 
 }
