@@ -9,11 +9,13 @@ public class movies {
     private int seattotal;
     double ticketPrice;
     
-     /* Abstraction Function:
-        AF(r) = 
+    /* Abstraction Function:
+        represents the movie titles, an integer array of number of seats and ticket price for movie 
 
         Rep Invariant:
-
+        7 < seats.length < 11
+        5 < double ticketPrice < 25
+        
         */
 
     public movies(String movieName, int numseats, double ticketPrice) {
@@ -86,7 +88,16 @@ public class movies {
         return count1;
     }
     
+    @Override
+    public String toString(){
+        return " Movie title: " + movieName + "\n Number of seats: " + seats.length + "\n TicketPrice: " + ticketPrice;
+    }
     public boolean repok(){
+        if ( seats.length > 0){
+                if (ticketPrice < 25 && ticketPrice > 5){
+                    return true;
+            }     
+        }
         return false;
     }
 
