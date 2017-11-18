@@ -238,12 +238,16 @@ public class customer {
             
             System.out.println("No purchases made, no info to display");}
             else{
-        System.out.println(" Movie Title: " + getTitle() + "\n Number of seats: " + getSeatnum() + "\n Price:$ " + getTotalprice());
+        System.out.println(toString());
             }
     }
-    
+    @Override
+    public String toString(){
+        return " Movie Title: " + getTitle() + "\n Number of seats: " + getSeatnum() + "\n Price:$ " + getTotalprice();
+    }
     public boolean repok(){
+        if (seatnum > 0 && seatnum < 5){
+            return true;
+        }
         return false;
     }
-
-}
