@@ -8,11 +8,13 @@ public  class Booked {
     private movies movies1;// a movies object is needed in order to access the seat array and adjust the seats available for that
     //movie based on the increment(refunding seats) and the decrement method(purchasing seats)
     
-     /* Abstraction Function:
-        AF(r) = 
+    /* Abstraction Function:
+        movies1 represents an object to increment and decrement the number of seats available for a movie
+        displays the seats booked and seats refunded
 
         Rep Invariant:
-
+        The number of seats being incremented can not exceed the number of seats available
+        The number of seats being decremented can not go below 0
         */
     public Booked(movies movies1, int j, int k) { 
         /*
@@ -21,6 +23,9 @@ public  class Booked {
         Modifies: sets the movie object
         Effects: sets the movie object and initializes the seat increment or decrement based on state of j        
         */
+        
+        toString(k);
+        repok(k);
 
         this.movies1 = movies1;
        // System.out.println(movies1.getMovie());
@@ -86,7 +91,13 @@ public  class Booked {
 
     }
     
-    public boolean repok(){
+    public String toString(int k){
+        return "Availible setas: " + k;
+    }
+    public boolean repok(int k){
+        if (k >= 0 && k <= movies1.seats.length){
+            return true;
+        }
         return false;
     }
 
