@@ -16,10 +16,13 @@ public class customer {
     private int age;
     
      /* Abstraction Function:
-        AF(r) = 
+        Customer object stores customer information
+        Represents the customer purchasing and refunding movie tickets
+        The number of seats purchased, ticket price and title of the movie are displayed
 
         Rep Invariant:
-
+        The customer can purchase between 1 to 4 seats per movie
+        The customer can only refund up to the amount of tickets they purchased
         */
 
     public String getUsername() {
