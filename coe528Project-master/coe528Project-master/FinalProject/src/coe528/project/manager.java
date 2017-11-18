@@ -13,11 +13,11 @@ public class manager {
     static private ArrayList< movies> movieArr = new ArrayList<movies>();
     static private ArrayList<customer> activeusers = new ArrayList<customer>();
     
-     /* Abstraction Function:
-        AF(r) = 
+      /* Abstraction Function:
+        Represents a manager with a user name, password and account number
 
         Rep Invariant:
-
+        user name and password by default are "admin" and account number is 0
         */
 
     public manager() {
@@ -100,7 +100,14 @@ public class manager {
 
     }
     
+ @Override
+    public String toString(){
+        return "user name: " + userName + "\nadmin password: " + adminPassword + "\n account number: " + accountNumber;
+    }
     public boolean repok(){
+        if (userName == "admin" && adminPassword == "admin" && accountNumber == 0){
+        return true;
+    }
         return false;
     }
 
