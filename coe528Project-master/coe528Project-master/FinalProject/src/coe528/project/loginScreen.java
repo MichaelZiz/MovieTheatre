@@ -6,29 +6,24 @@ import java.util.ArrayList;
 public class loginScreen {
 
     /*Overview: Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
-    Login starts off with manager access, as manager should create movies to be available to the public. Customers can access,
+    Login starts off with manager access, as manager, you should create movies to be available to the public. Customers can access,
     and manage their accounts via login*/
-
     static private int k = 0, p = 1;
     private static ArrayList<customer> userspointer;
+    private static ArrayList<String> titles = new ArrayList<String>();
+    static private ArrayList<movies> movieArr = new ArrayList<movies>();
 
-    private static ArrayList<String> titles=new ArrayList <String>();
-    static private ArrayList<movies> movieArr=new ArrayList<movies>();
-
-    
-     /* Abstraction Function:
+    /* Abstraction Function:
         AF(r) = 
 
         Rep Invariant:
 
-        */
-
-
+     */
     public static manager Managersetup(manager one, int stat1) {
         /*
         Requires: manager object can be null, or active manager object, int stat1 can be any integer 
         Modifies: adds movies into <movies> arraylist in manager class. 
-        Effects: creates movies for the customers to choose from
+        Effects: creates movies for the customers to choose from and returns the modified manager object
         
          */
         String password, name;
@@ -73,13 +68,13 @@ public class loginScreen {
 
         do {
 
-            System.out.println(" \n Press 1 to create Movie \n Press 3 to Delete movie \n Press 2 To LogOut of Manager");
+            System.out.println(" \n Press 1 to create Movie \n Press 2 To Delete Movie \n Press 3 to Logout of Manager");
 
             while (qw == 0) {
                 Scanner q = new Scanner(System.in);
                 if (q.hasNextInt() == true) {
                     b = q.nextInt();
-                    if (b == 1 || b == 2||b==3) {
+                    if (b == 1 || b == 2 || b == 3) {
                         break;
                     } else {
                         System.out.println("enter 1 or 2");
@@ -89,27 +84,27 @@ public class loginScreen {
                 }
             }
 
-            if (b == 1 || b == 2|| b==3) {//if statements corresponding to user input
+            if (b == 1 || b == 2 || b == 3) {//if statements corresponding to user input
 
                 if (b == 1) {
-                    String movieName=null;
+                    String movieName = null;
                     double price;
                     int seatNum, y9 = 0, y8 = 0, y10 = 0;
                     System.out.println("Type in movie title to create"); //movie title cannot occur twice 
-                   
+
                     while (y10 == 0) {
                         Scanner v = new Scanner(System.in);
                         movieName = v.nextLine();
-                        if(titles==null){
-                            
-                        y10=1;
-                        }else{
-                        if (titles.contains(movieName)) {
-                            System.out.println("Movie title already exists, enter another title");
+                        if (titles == null) {
 
-                        } else {
                             y10 = 1;
-                        }
+                        } else {
+                            if (titles.contains(movieName)) {
+                                System.out.println("Movie title already exists, enter another title");
+
+                            } else {
+                                y10 = 1;
+                            }
                         }
                     }
                     titles.add(movieName);
@@ -129,7 +124,7 @@ public class loginScreen {
                                         if (seatNum > 7 && seatNum < 11) {// can change the seat limit, 2-4 seats per movie
                                             if (k > -1 && k < 3) {//can change the movie limit, make 2 movies
 
-                                                one.addandRemoveMovie(movieName, seatNum, price, k,0,0);
+                                                one.addandRemoveMovie(movieName, seatNum, price, k, 0, 0);
                                                 y8 = 1;
                                                 y9 = 1;
                                                 k++;
@@ -142,7 +137,7 @@ public class loginScreen {
 
                                             }
                                         } else {
-                                            System.out.println("movie theater capacity lies from 10 to 12 seats ");
+                                            System.out.println("movie theater capacity lies from 8 to 10 seats ");
                                         }
                                     } else {
                                         System.out.println("Enter a valid decimal number");
@@ -157,63 +152,60 @@ public class loginScreen {
 
                 }
 
-                if (b == 2) {//Exit Manager
+                if (b == 3) {//Exit Manager
                     System.out.println("exiting manager");
                     x1 = 1;
                 }
-                if(b==3){//need to remove from titles array too
-                    int y11=0;String movieName1=null;
+                if (b == 2) {//need to remove from titles array too
+                    int y11 = 0;
+                    String movieName1 = null;
                     //System.out.println(titles.size());
-                    if(titles.size()!=0){
-                        
-                    System.out.println("Type in movie title to delete, can only delete movie if no one bought tickets to the movie"); //movie title cannot occur twice 
-                   
-                    if(titles.size()==0){
-                     System.out.println("no titles exist");
-                   }
-                   else{
-                        for(int i =0; i<=titles.size()-1;i++){
-                        System.out.println("Movie: "+titles.get(i));
-                        
-                    }
-                       }
-                    
-                    
-                    while (y11 == 0) {
-                        Scanner v = new Scanner(System.in);
-                        movieName1 = v.nextLine();
-                        if(titles==null){
-                            
-                        y11=1;
-                        }else{
-                        if (titles.contains(movieName1)) {
-                            
-                     int k1=0;
-                     k1=titles.indexOf(movieName1);
-                     
-                    if(movieArr.size()==0||movieArr.get(k1).SeatsAvailable()==movieArr.get(k1).getSeattotal()){
-                    System.out.println("No purchases made, removed movie");
-                    titles.remove(movieName1);
-                    one.addandRemoveMovie(null,0,0.0,0,1,k1);
-                    y11=1;
-                    }else {
-                        System.out.println("Cannot remove movie, purchases already made");
-                    y11=1;
-                    }
-                          //  System.out.println("Movie title already exists, enter another title");
+                    if (titles.size() != 0) {
 
+                        System.out.println("Type in movie title to delete, can only delete movie if no one bought tickets to the movie"); //movie title cannot occur twice 
+
+                        if (titles.size() == 0) {
+                            System.out.println("no titles exist");
                         } else {
-                           System.out.println("movie doesnt exist");
-                           y11=1;
+                            for (int i = 0; i <= titles.size() - 1; i++) {
+                                System.out.println("Movie: " + titles.get(i));
+
+                            }
                         }
+
+                        while (y11 == 0) {
+                            Scanner v = new Scanner(System.in);
+                            movieName1 = v.nextLine();
+                            if (titles == null) {
+
+                                y11 = 1;
+                            } else {
+                                if (titles.contains(movieName1)) {
+
+                                    int k1 = 0;
+                                    k1 = titles.indexOf(movieName1);
+
+                                    if (movieArr.size() == 0 || movieArr.get(k1).SeatsAvailable() == movieArr.get(k1).getSeattotal()) {
+                                        System.out.println("No purchases made, removed movie");
+                                        titles.remove(movieName1);
+                                        one.addandRemoveMovie(null, 0, 0.0, 0, 1, k1);
+                                        y11 = 1;
+                                    } else {
+                                        System.out.println("Cannot remove movie, purchases already made");
+                                        y11 = 1;
+                                    }
+                                    //  System.out.println("Movie title already exists, enter another title");
+
+                                } else {
+                                    System.out.println("movie doesnt exist");
+                                    y11 = 1;
+                                }
+                            }
                         }
+                    } else {
+                        System.out.println("no movies to remove");
                     }
-                    }else System.out.println("no movies to remove");
-                    
-                    
-                    
-                
-                
+
                 }
             } else {
                 System.out.println("Enter a valid number to access directory");
@@ -224,14 +216,11 @@ public class loginScreen {
     }
 
     public static void CustomerAccess(int i, ArrayList<customer> userspointer1, ArrayList<String> titles1, ArrayList<movies> movies1) {
-        // customer should be able to purchase a ticket, refund a ticket
-        //and check the information on their seats, need to pass the customer array
-        // that customer array needs to have a pointer to the customers specific seat
         /*
         Requires: int i >= 0, arraylist <string> can't be null, length greater than 0, 
         arraylist <string> can't be null, length greater than 0, arraylist<movies> cant be null, length greater than 0 
-        Modifies: customer objects that purchase and refund tickets will have a state change to the tickets and seats purchased. 
-        Effects:users can purchase, refund tickets, view info on tickets and movie titles. 
+        Modifies: customer objects that purchase and refund tickets will have a state change to the movies tickets and seats purchased. 
+        Effects: users movie information will be updated upon purchase or refund, view info on tickets and movie titles. 
          */
         int y = 0, x = 0;
 
@@ -321,7 +310,7 @@ public class loginScreen {
                                                             if ((seatholder + userspointer1.get(i).getSeatnum()) <= 4 && seatholder > 0) {
                                                                 System.out.println("seat");
                                                                 userspointer1.get(i).purchaseTicket(userspointer1.get(i).getAge(), userspointer1.get(i).getSeatnum() + seatholder, titlerequest, movies1.get(j), 2);
-                                                                // should have a away to decrement the seats in movie and from customer point to movie so user can later access info
+
                                                                 p1 = 1;
                                                                 lp = 1;
                                                                 break;
@@ -369,8 +358,6 @@ public class loginScreen {
 
                         } while (lp == 0);
 
-                        //prompt user for input of age cant be negative,seats limit is 1 to 4, moviename must match one of those available
-                        //  userspointer1.get(i).purchaseTicket(b, b, movieName);
                     } else {
                         System.out.println("no movies available");
                     }
@@ -392,7 +379,7 @@ public class loginScreen {
                         } else {
                             System.out.println("will be refunding this booking");
                             userspointer1.get(i).SetinformationONticket();
-                            // System.out.println(userspointer1.get(i).getSeatnum() + " " + userspointer1.get(i).getMovie1());
+
                             userspointer1.get(i).refundTicket(userspointer1.get(i).getMovie1(), userspointer1.get(i).getSeatnum());
                             lp1 = 1;
 
@@ -409,13 +396,13 @@ public class loginScreen {
                 if (b == 4) {
                     String q = "\n";
                     // view movies playing
-                    //best to implement this through a method in manager class
+
                     if (movies1.isEmpty() == false) {
                         System.out.println("Available movies");
                         for (int io = 0; io <= movies1.size() - 1; io++) { // check the movies with a for loop that loops through and matches the name hence also matching the number of seast along with it
-                            //System.out.println(io+" "+titles1.size());
+
                             if (movies1.get(io) == null) {
-                                //System.out.println("here1"); /*create some loop counter for no movies*/
+
                             } else {
                                 q = "Movie: " + (io + 1) + " " + movies1.get(io).movieName + " Seats avaiable: " + movies1.get(io).SeatsAvailable();
 
@@ -427,7 +414,6 @@ public class loginScreen {
                         System.out.println("No movies Available");
                     }
 
-                    //  System.out.println("here"); 
                 }
             } else {
                 System.out.println("Enter a valid number to access directory");
@@ -435,8 +421,8 @@ public class loginScreen {
         } while (x == 0);
 
     }
-    
-    public boolean repok(){
+
+    public boolean repok() {
         return false;
     }
 
@@ -481,23 +467,22 @@ public class loginScreen {
 
                     }
                     // useful info needed for purchase ticket
-                    userspointer = one.getList();//does this update later on??????
-                   
+                    userspointer = one.getList();
+
                     movieArr = one.getMovies();
                     int counter1 = 0;
                     try {
-                        //System.out.println(accnum+password+name+" "+one.getAdminPassword()+one.getUserName()+one.getAccountNum());
 
                         if (password.equals(one.getAdminPassword()) && name.equals(one.getUserName()) && accnum == one.getAccountNum()) {//check manager login
 
                             Managersetup(one, 1);
-                        } else// System.out.println("in here");
+                        } //else
                         if (userspointer.size() >= 1) {
                             for (int i = 0; i <= userspointer.size() - 1; i++) {
-                                //System.out.println("in here");
+
                                 if (password.equals(userspointer.get(i).getPassword()) && name.equals(userspointer.get(i).getUsername()) && accnum == userspointer.get(i).getAccnum()) {
                                     System.out.println("Logged into Account: " + name);
-                                    // System.out.println(titles.size());
+
                                     CustomerAccess(i, userspointer, titles, movieArr);// customer access account here, customer will have access to customer profile arraylist
                                     System.out.println("logged out");
                                     counter1++;
@@ -505,9 +490,9 @@ public class loginScreen {
 
                                 }
                             }
-                            //System.out.println(counter);
+
                             if (counter1 > 0) {
-                                //System.out.println("account doesnt exist");//add counter here}
+
                             } else {
                                 System.out.println("account doesnt exist");
                             }
@@ -536,7 +521,7 @@ public class loginScreen {
 
                         int y1 = 0, age = 0;
                         while (y1 == 0) {
-                            System.out.println("enter age");
+                            System.out.println("enter age (11-99)");
                             Scanner v1 = new Scanner(System.in);
                             if (v1.hasNextInt() == true) {
                                 age = v1.nextInt();
@@ -560,12 +545,12 @@ public class loginScreen {
                                 x3 = 1;
                             } else {
                                 for (int i = 0; i <= userspointer.size() - 1; i++) {
-                                    //  System.out.println("names: "+userspointer.get(i).getUsername());
-                                    if (name1.equals(userspointer.get(i).getUsername())) {// change this up to actual user name no tthe names array
+
+                                    if (name1.equals(userspointer.get(i).getUsername())) {
                                         dido++;
                                     }
                                 }
-                                // System.out.println("dido value" + dido);
+
                                 if (dido > 0) {
                                     System.out.println("Username already exists, choose another name, Enter another Username");
                                 } else {
@@ -580,7 +565,7 @@ public class loginScreen {
                         } catch (NullPointerException ex) {
                             System.out.println("Unique Account Number is: " + p);
                             one.createAccount(name1, password1, p++, age);
-                            //System.out.println("Unique Account Number is: " + p);
+
                             x3 = 1;
 
                         }
