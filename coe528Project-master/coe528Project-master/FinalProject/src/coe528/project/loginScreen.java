@@ -14,12 +14,14 @@ public class loginScreen {
     static private ArrayList<movies> movieArr = new ArrayList<movies>();
      
     /* Abstraction Function:
-        represents an array llist of titles
-        represents an array list of movieArr
+        represents a string array list of titles
+        represents a movies array list of movie objects
+        represents a customer array list of userspointers
 
         Rep Invariant:
-        The array list, titles can not be null and length must be greater than 0
-        The array list, movieArr can not be null and the length must be greater than 0
+        The string array list, titles can not be null and length must be greater than or equal to 0
+        The movies array list, movieArr can not be null and the length must be greater than or equal than 0
+        The customer array list, userspointer can not be null
         */
     
     public static manager Managersetup(manager one, int stat1) {
@@ -427,12 +429,14 @@ public class loginScreen {
 
     @Override
     public String toString(){
-        return "length of titles array: " + titles.size() + "/n length of movie array: " + movieArr.size();
+        return "length of titles array: " + titles.size() + "/n length of movie array: " + movieArr.size()+ "/n length of userspointer: " + userspointer.size();
     }
     public boolean repok(){
-        if (titles != null && titles.size() > 0){
-            if (movieArr != null && movieArr.size() > 0 ){
-                return true;
+        if (titles != null && titles.size() >= 0){
+            if (movieArr != null && movieArr.size() >= 0 ){
+                if (userspointer != null ){
+                    return true;
+                }
             }
         }
         
