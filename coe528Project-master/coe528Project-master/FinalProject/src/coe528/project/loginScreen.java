@@ -429,7 +429,11 @@ public class loginScreen {
 
     @Override
     public String toString(){
+        if(userspointer!=null){
         return "length of titles array: " + titles.size() + "/n length of movie array: " + movieArr.size()+ "/n length of userspointer: " + userspointer.size();
+        } else{ 
+            return "length of titles array: " + titles.size() + "/n length of movie array: " + movieArr.size();
+        }
     }
     public boolean repok(){
         if (titles != null && titles.size() >= 0){
