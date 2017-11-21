@@ -4,7 +4,9 @@ public class customer {
 
     /*OVERVIEW: Customer class initiates a customer object, this is where all of the customers information is stored and where the customer can purchase
  refund ticket. Information on the customers ticket purchase is also stored here.
- Information on the number of seats purchased, ticket price and title of the movie they will be viewing. */
+ Information on the number of seats purchased, ticket price and title of the movie they will be viewing. 
+    This class is mutable as the customer can order
+    tickets to the movie fo their choice, they can refund and get a different price*/
 
     private String Username;
     private String password;

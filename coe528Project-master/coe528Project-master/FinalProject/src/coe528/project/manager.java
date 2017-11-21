@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class manager {
 
     /*OVERIVIEW Manager class contains the managers credentials to access the system, manager can create/delete movies and give access to
-    other class to access its informatoin on movie objects*/
+    other class to access its informatoin on movie objects, this class is mutable as movieArr can change its avaiable seats */
     private final String userName = "admin";
     private final String adminPassword = "admin";
     private final int accountNumber = 0;

@@ -3,7 +3,7 @@ package coe528.project;
 public class Booked {
 
     /*Overview Booked is able to increment or decrement the number of seats available for a certain movie, based on
-    the refunds and purchases made towards that particular movie
+    the refunds and purchases made towards that particular movie. Booked is not a mutable class, it only changes the the object that movies1 points to.
      */
     private movies movies1;// a movies object is needed in order to access the seat array and adjust the seats available for that
     //movie based on the increment(refunding seats) and the decrement method(purchasing seats)

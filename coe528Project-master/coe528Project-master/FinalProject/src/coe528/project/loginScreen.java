@@ -7,7 +7,7 @@ public class loginScreen {
 
     /*Overview: Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
     Login starts off with manager access, as manager, you should create movies to be available to the public. Customers can access,
-    and manage their accounts via login*/
+    and manage their accounts via login, this is a non-mutable class titles,userpointer and movieArr can't change once created or when referenced to another list/object.*/
     static private int k = 0, p = 1;
     private static ArrayList<customer> userspointer;
     private static ArrayList<String> titles = new ArrayList<String>();

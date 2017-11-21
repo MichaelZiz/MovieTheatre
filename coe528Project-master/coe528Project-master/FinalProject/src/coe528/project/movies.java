@@ -3,7 +3,7 @@ package coe528.project;
 public class movies {
 
     /*OVERVIEW Movies class stores information on the movie(s) being stored, contains the title, number of seats for the movie 
- and the set ticket price of the movie*/
+ and the set ticket price of the movie. This class is mutable as the number of available seats can change.*/
     String movieName;
     public int[] seats;
     private int seattotal;
