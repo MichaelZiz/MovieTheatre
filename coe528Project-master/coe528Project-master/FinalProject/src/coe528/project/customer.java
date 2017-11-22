@@ -13,7 +13,7 @@ public class customer {
     private int accnum, seatnum = 0;
     private String title;
     private double totalprice;
-    private Booked booked;
+    private Seating booked;
     private movies movie1;
     private int age;
 

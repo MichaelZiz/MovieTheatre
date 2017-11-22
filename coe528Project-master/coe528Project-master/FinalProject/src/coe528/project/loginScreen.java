@@ -82,7 +82,7 @@ public class loginScreen {
                     if (b == 1 || b == 2 || b == 3) {
                         break;
                     } else {
-                        System.out.println("enter 1 or 2");
+                        System.out.println("enter 1 or 2 or 3");
                     }
                 } else {
                     System.out.println("enter valid integer");
@@ -119,7 +119,7 @@ public class loginScreen {
                         System.out.println("enter ticket price, ticket price lies from 5 to 25 dollars");
                         if (yo.hasNextDouble() == true) {
                             price = yo.nextDouble();
-                            if (price > 5 && price < 25.0) {
+                            if (price >= 5 && price <= 25.0) {
 
                                 while (y8 == 0) {
                                     Scanner yo1 = new Scanner(System.in);
@@ -151,7 +151,7 @@ public class loginScreen {
 
                             }
                         } else {
-                            System.out.println("ticket prices can only be between 5 and 25 dollars");
+                            System.out.println("integer needed");
                         }
                     }
 
@@ -497,7 +497,7 @@ public class loginScreen {
                         if (password.equals(one.getAdminPassword()) && name.equals(one.getUserName()) && accnum == one.getAccountNum()) {//check manager login
 
                             Managersetup(one, 1);
-                        } //else
+                        } else
                         if (userspointer.size() >= 1) {
                             for (int i = 0; i <= userspointer.size() - 1; i++) {
 

@@ -1,6 +1,6 @@
 package coe528.project;
 
-public class Booked {
+public class Booked implements Seating {
 
     /*Overview Booked is able to increment or decrement the number of seats available for a certain movie, based on
     the refunds and purchases made towards that particular movie. Booked is not a mutable class, it only changes the the object that movies1 points to.
