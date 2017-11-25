@@ -45,7 +45,7 @@ public class loginScreen {
                                     x = 1;
                                     z1 = 1;
                                 } else {
-                                    System.out.println("wrong Username or exceeds length 5 char");
+                                    System.out.println("wrong Username");
                                 }
 
                             } else {
