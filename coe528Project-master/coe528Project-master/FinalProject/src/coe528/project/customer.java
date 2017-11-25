@@ -1,12 +1,14 @@
 package coe528.project;
 
+/**OVERVIEW: Customer class initiates a customer object, this is where all of the customers information is stored and where the customer can purchase
+     *refund ticket. Information on the customers ticket purchase is also stored here.
+     *Information on the number of seats purchased, ticket price and title of the movie they will be viewing. 
+     *This class is mutable as the customer can order
+     *tickets to the movie of their choice, they can refund and get a different price
+     **/
 public class customer {
 
-    /*OVERVIEW: Customer class initiates a customer object, this is where all of the customers information is stored and where the customer can purchase
- refund ticket. Information on the customers ticket purchase is also stored here.
- Information on the number of seats purchased, ticket price and title of the movie they will be viewing. 
-    This class is mutable as the customer can order
-    tickets to the movie fo their choice, they can refund and get a different price*/
+    
 
     private String Username;
     private String password;
@@ -17,103 +19,96 @@ public class customer {
     private movies movie1;
     private int age;
 
-    /* Abstraction Function:
-        Customer object stores customer information
-        Represents the customer purchasing and refunding movie tickets
-        The number of seats purchased, ticket price and title of the movie are displayed
-
-        Rep Invariant:
-        The customer can purchase between 1 to 4 seats per movie
-        The customer can only refund up to the amount of tickets they purchased
-     */
+      
+       /**
+        *Requires:no requirements
+        *Modifies:no modification
+        *Effects: returns customers username
+         **/
     public String getUsername() {
-        /*
-        Requires:no requirements
-        Modifies:no modification
-        Effects: returns customers username
-         */
+        
 
         return Username;
     }
-
+        /**
+        *Requires:no requirements
+        *Modifies:no modification
+        *Effects: returns customers age
+         **/
     public int getAge() {
-        /*
-        Requires:no requirements
-        Modifies:no modification
-        Effects: returns customers age
-         */
+        
         return age;
     }
-
+        /**
+        *Requires: an integer that is greater than zero
+        *Modifies: no modification
+        *Effects: sets customers age
+         **/
     public void setAge(int age) {
-        /*
-        Requires: an integer that is greater than zero
-        Modifies: no modification
-        Effects: sets customers age
-         */
+        
 
         this.age = age;
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies: no modification
+        *Effects: returns customers movie
+         **/
     public movies getMovie1() {
-        /*
-        Requires: no requirement
-        Modifies: no modification
-        Effects: returns customers movie
-         */
+        
 
         return movie1;
     }
-
+        /**
+        *Requires: a movie object, object can technically be null, but will not occur due to login screen procedure
+        *Modifies: no modification
+        *Effects: sets movie customers is interested in
+         **/
     public void setMovie1(movies movie1) {
-        /*
-        Requires: a movie object, object can technically be null, but will not occur due to login screen procedure
-        Modifies: no modification
-        Effects: sets movie customers is interested in
-         */
+        
 
         this.movie1 = movie1;
     }
-
+        /**
+        *Requires: movies object, integer j (either a 1 or 0): determine state of booked object. 
+        *Integer k greater than 0 less that 4: the number of seats 
+        *the user is refunding/purchasing.
+        *Modifies:no modification
+        *Effects: creates a new booked object that follows state procedure based on its parameters
+         **/
     public void setBooked(movies movies1, int j, int k) {
-        /*
-        Requires: movies object, integer j (either a 1 or 0): determine state of booked object. 
-        Integer k greater than 0 less that 4: the number of seats 
-        the user is refunding/purchasing.
-        Modifies:no modification
-        Effects: creates a new booked object that follows state procedure based on its parameters
-         */
+        
 
         booked = new Booked(movies1, j, k);
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies: no modification
+        *Effects: returns customers password
+         **/
     public String getPassword() {
-        /*
-        Requires: no requirement
-        Modifies: no modification
-        Effects: returns customers password
-         */
+       
         return password;
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies: no modification
+        *Effects: returns customers account number
+         **/
     public int getAccnum() {
-        /*
-        Requires: no requirement
-        Modifies: no modification
-        Effects: returns customers account number
-         */
+        
 
         return accnum;
     }
-
+        /**
+        *Requires: A string(username) that is not null and has length greater that 0, 
+        *String password that is not null and has length greater that 0, int accnum an integer than is greater than or equal to 1,
+        *int age, an integer that is greater 0
+        *Modifies: no modification
+        *Effects: constructor sets the parameter of customer username,password, account number and age
+         **/
     public customer(String Username, String password, int accnum, int age) {
-        /*
-        Requires: A string(username) that is not null and has length greater that 0, 
-        String password that is not null and has length greater that 0, int accnum an integer than is greater than or equal to 1,
-        int age, an integer that is greater 0
-        Modifies: no modification
-        Effects: constructor sets the parameter of customer username,password, account number and age
-         */
+        
 
         this.Username = Username;
         this.password = password;
@@ -121,53 +116,53 @@ public class customer {
         this.age = age;
 
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies:No modifications
+        *Effects: returns the number of seats purchased by the customer 
+         **/
     public int getSeatnum() {
-        /*
-        Requires: no requirement
-        Modifies:No modifications
-        Effects: returns the number of seats purchased by the customer 
-         */
+        
         return seatnum;
     }
-
+        /**
+        *Requires: requires an integer greater than 0 less that 5
+        *Modifies: sets the value of customers booked seats
+        *Effects: returns the number of seats purchased by the customer 
+         **/
     public void setSeatnum(int seatnum) {
-        /*
-        Requires: requires an integer greater than 0 less that 5
-        Modifies: sets the value of customers booked seats
-        Effects: returns the number of seats purchased by the customer 
-         */
+       
 
         this.seatnum = seatnum;
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies:No modifications
+        *Effects: returns the title of the movie purchased by the customer 
+         **/
     public String getTitle() {
-        /*
-        Requires: no requirement
-        Modifies:No modifications
-        Effects: returns the title of the movie purchased by the customer 
-         */
+       
         return title;
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies: No modifications
+        *Effects: returns the updated total price for the movie 
+         **/
     public double getTotalprice() {
-        /*
-        Requires: no requirement
-        Modifies: No modifications
-        Effects: returns the updated total price for the movie 
-         */
+        
 
         return totalprice;
     }
-
+        /**
+        *Requires:int age greater than 0, int seats greater than 0, string movieName; cannot be null, length greater than 0, movies object cannot be null
+        *int status any integer
+        *Modifies: changes ticket price according to discounts
+        *Effects:sets ticketPrice, sets movie to watch, sets # of seats purchased
+        **/
     public void purchaseTicket(int age, int seats, String movieName, movies movies1, int status) {
         //customer should get discounts as applicable, based on age if they buy one ticket,number of seats purchased
-        /*
-        Requires:int age greater than 0, int seats greater than 0, string moviename; cannot be null, length greater than 0, movies object cannot be null
-        int status any integer
-        Modifies: changes ticket price according to discounts
-        Effects:sets ticketprice, sets movie to watch, sets # of seats purchased
-        */
+       
         int seatnum1;
         totalprice = movies1.getTicketPrice();
         title = movies1.getMovie();
@@ -217,28 +212,28 @@ public class customer {
         setBooked(movies1, 1, seatnum1);
 
     }
+        /**
+        *Require:movie object that isn't null
+        *Modifies:no modifications
+        *Effects: calls setbooked method
+         **/
 
-    public void refundTicket(movies movies1, int seats) {// check this out
-        /*
-        Require:movie object that isnt null
-        Modifies:no modifications
-        Effects: calls setbooked method
-         */
-
+    public void refundTicket(movies movies1, int seats) {
+        
         setBooked(movies1, 0, getSeatnum()); //this should be the calling to booked from refund ticket
 
         title = null;
         seatnum = 0;
         totalprice = 0;
     }
-
+        /**
+        *Requires: no requirement
+        *Modifies:No modifications
+        *Effects: returns the movie title, number of seats purchased and total price: for Movie purchased by the customer 
+         **/
     public void SetinformationONticket() {
 
-        /*
-        Requires: no requirement
-        Modifies:No modifications
-        Effects: returns the movie title, number of seats purchased and total price: for Movie purchased by the customer 
-         */
+        
         if (getTitle() == null) {
 
             System.out.println("No purchases made, no info to display");
@@ -246,12 +241,19 @@ public class customer {
             System.out.println(toString());
         }
     }
-
+      /**Abstraction Function:
+        *Customer object stores customer information
+        *Represents the customer purchasing and refunding movie tickets
+        *The number of seats purchased, ticket price and title of the movie are displayed
+        **/
     @Override
     public String toString() {
         return " Movie Title: " + getTitle() + "\n Number of seats: " + getSeatnum() + "\n Price:$ " + getTotalprice();
     }
-
+   /** Rep Invariant:
+        *The customer can purchase between 1 to 4 seats per movie
+        *The customer can only refund up to the amount of tickets they purchased
+     **/
     public boolean repok() {
         if (seatnum > 0 && seatnum < 5) {
             return true;

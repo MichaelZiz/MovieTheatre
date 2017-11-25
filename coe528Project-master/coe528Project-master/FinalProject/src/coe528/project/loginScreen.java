@@ -2,35 +2,27 @@ package coe528.project;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-
+   /**Overview: Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
+    *Login starts off with manager access, as manager, you should create movies to be available to the public. Customers can access,
+    *and manage their accounts via login, this is a non-mutable class titles,userpointer and movieArr can't change once created or when referenced to another list/object.
+    **/
 public class loginScreen {
 
-    /*Overview: Login class contains the interface that the user is able to interact with, user is able to input credentials of their account
-    Login starts off with manager access, as manager, you should create movies to be available to the public. Customers can access,
-    and manage their accounts via login, this is a non-mutable class titles,userpointer and movieArr can't change once created or when referenced to another list/object.*/
+    
     static private int k = 0, p = 1;
     private static ArrayList<customer> userspointer;
     private static ArrayList<String> titles = new ArrayList<String>();
     static private ArrayList<movies> movieArr = new ArrayList<movies>();
      
-    /* Abstraction Function:
-        represents a string array list of titles
-        represents a movies array list of movie objects
-        represents a customer array list of userspointers
-
-        Rep Invariant:
-        The string array list, titles can not be null and length must be greater than or equal to 0
-        The movies array list, movieArr can not be null and the length must be greater than or equal than 0
-        The customer array list, userspointer can not be null
-        */
     
+      
+        /**
+        *Requires: manager object can be null, or active manager object, int stat1 can be any integer 
+        *Modifies: adds movies into <movies> arrayList in manager class. 
+        *Effects: creates movies for the customers to choose from and returns the modified manager object
+        **/
     public static manager Managersetup(manager one, int stat1) {
-        /*
-        Requires: manager object can be null, or active manager object, int stat1 can be any integer 
-        Modifies: adds movies into <movies> arraylist in manager class. 
-        Effects: creates movies for the customers to choose from and returns the modified manager object
         
-         */
         String password, name;
         int x = 0, x1 = 0, z1 = 0, qw = 0, b = 0;
         if (stat1 == 0) {
@@ -219,14 +211,14 @@ public class loginScreen {
 
         return one;
     }
-
+/**
+        *Requires: int i >= 0, arrayList <string> can't be null, length greater than 0, 
+        *arrayList <string> can't be null, length greater than 0, arrayList<movies> cant be null, length greater than 0 
+        *Modifies: customer objects that purchase and refund tickets will have a state change to the movies tickets and seats purchased. 
+        *Effects: users movie information will be updated upon purchase or refund, view info on tickets and movie titles. 
+         **/
     public static void CustomerAccess(int i, ArrayList<customer> userspointer1, ArrayList<String> titles1, ArrayList<movies> movies1) {
-        /*
-        Requires: int i >= 0, arraylist <string> can't be null, length greater than 0, 
-        arraylist <string> can't be null, length greater than 0, arraylist<movies> cant be null, length greater than 0 
-        Modifies: customer objects that purchase and refund tickets will have a state change to the movies tickets and seats purchased. 
-        Effects: users movie information will be updated upon purchase or refund, view info on tickets and movie titles. 
-         */
+        
         int y = 0, x = 0;
 
         do {
@@ -426,7 +418,11 @@ public class loginScreen {
         } while (x == 0);
 
     }
-
+/**Abstraction Function:
+        *represents a string array list of titles
+        *represents a movies array list of movie objects
+        *represents a customer array list of userspointer
+       **/
     @Override
     public String toString(){
         if(userspointer!=null){
@@ -435,6 +431,11 @@ public class loginScreen {
             return "length of titles array: " + titles.size() + "/n length of movie array: " + movieArr.size();
         }
     }
+    /**  Rep Invariant:
+        *The string array list, titles can not be null and length must be greater than or equal to 0
+        *The movies array list, movieArr can not be null and the length must be greater than or equal than 0
+        *The customer array list, userspointer can not be null
+        **/
     public boolean repok(){
         if (titles != null && titles.size() >= 0){
             if (movieArr != null && movieArr.size() >= 0 ){
@@ -446,7 +447,10 @@ public class loginScreen {
         
         return false;
     }
-
+/**Overview:
+ * This is the main, program executes from here, it first creates a manager object to begin the movie theatre process and directs users and manager to 
+ *  directory where they can choose what to do next. 
+ **/
     public static void main(String[] args) {
 
         manager one = new manager();
