@@ -104,7 +104,7 @@ public class loginScreen {
                             }
                         }
                     }
-                    titles.add(movieName);
+                    
 
                     while (y9 == 0) {
                         Scanner yo = new Scanner(System.in);
@@ -120,7 +120,7 @@ public class loginScreen {
                                         seatNum = yo1.nextInt();
                                         if (seatNum > 7 && seatNum < 11) {// can change the seat limit, 2-4 seats per movie
                                             if (k > -1 && k < 3) {//can change the movie limit, make 2 movies
-
+                                                titles.add(movieName);
                                                 one.addandRemoveMovie(movieName, seatNum, price, k, 0, 0);
                                                 y8 = 1;
                                                 y9 = 1;
@@ -186,6 +186,7 @@ public class loginScreen {
                                         System.out.println("No purchases made, removed movie");
                                         titles.remove(movieName1);
                                         one.addandRemoveMovie(null, 0, 0.0, 0, 1, k1);
+                                        k--;
                                         y11 = 1;
                                     } else {
                                         System.out.println("Cannot remove movie, purchases already made");
